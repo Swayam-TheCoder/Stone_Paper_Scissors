@@ -22,3 +22,11 @@ export const saveMatch = async (matchData) => {
 
   return response.data;
 };
+
+// DELETE ALL MATCHES
+export const clearMatches = async () => {
+
+  const response = await axios.delete(API);
+
+  return response.data;
+};

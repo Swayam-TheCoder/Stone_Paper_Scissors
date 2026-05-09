@@ -27,3 +27,22 @@ router.get("/", async (req, res) => {
 });
 
 export default router;
+
+// DELETE ALL MATCHES
+router.delete("/", async (req, res) => {
+
+  try {
+
+    await Match.deleteMany({});
+
+    res.json({
+      message: "All match history deleted"
+    });
+
+  } catch (error) {
+
+    res.status(500).json({
+      message: error.message
+    });
+  }
+});
