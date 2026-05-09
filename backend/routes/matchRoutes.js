@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
 // GET MATCH HISTORY
 router.get("/", async (req, res) => {
   try {
-    const matches = await Match.find().sort({ createdAt: -1 });
+    const matches = await Match.find().sort({ createdAt: -1 }).limit(20);
     res.json(matches);
   }
   catch(err){
