@@ -14,6 +14,8 @@ function Game() {
 
   const [history, setHistory] = useState([]);
 
+  const [visibleCount, setVisibleCount] = useState(2);
+
   // FETCH MATCH HISTORY
   const fetchHistory = async () => {
     try {
@@ -169,7 +171,7 @@ function Game() {
         <h1 className="text-3xl font-bold mb-4">Match History</h1>
 
         <div className="space-y-3">
-          {history.map((match) => (
+          {history.slice(0, visibleCount).map((match) => (
             <div key={match._id} className="bg-zinc-800 p-4 rounded-xl">
               <p>
                 You:
@@ -186,6 +188,14 @@ function Game() {
               <p className="font-bold text-green-400">{match.result}</p>
             </div>
           ))}
+          {visibleCount < history.length && (
+            <button
+              onClick={() => setVisibleCount((prev) => prev + 5)}
+              className="mt-5 bg-cyan-500 hover:bg-cyan-600 px-6 py-3 rounded-xl text-lg font-semibold transition"
+            >
+              Show More
+            </button>
+          )}
         </div>
       </div>
     </div>
