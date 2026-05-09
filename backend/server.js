@@ -7,7 +7,12 @@ import matchRoute from './routes/matchRoutes.js';
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://stone-paper-scissors-olive-ten.vercel.app",
+    credentials: true
+  })
+);
 app.use(express.json());
 
 app.use('/api/matches', matchRoute);

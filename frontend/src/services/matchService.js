@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:5000/api/matches";
+const API = "https://stone-paper-scissors-r74z.onrender.com/api/matches";
 
 
 // GET MATCH HISTORY
